@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasmina Imam — Electrical Engineer</title>
+<meta name="description" content="Tasmina Imam — Electrical Engineer specializing in power systems, renewable energy integration, and data-driven grid resiliency research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0E12;
+    --bg-elev:#10151B;
+    --bg-elev-2:#141A21;
+    --line:rgba(140,168,184,0.14);
+    --line-strong:rgba(140,168,184,0.28);
+    --text:#E7EEF2;
+    --text-dim:#93A2AC;
+    --text-faint:#5C6A72;
+    --accent:#4CE7D0;
+    --accent-dim:#2C7C71;
+    --accent-2:#F4B860;
+    --radius:10px;
+    --maxw:960px;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'IBM Plex Sans', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:48px 48px;
+    opacity:0.35;
+    pointer-events:none;
+    z-index:0;
+  }
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px; position:relative; z-index:1;}
+  section{padding:96px 0;}
+  h1,h2,h3{font-family:var(--font-display); font-weight:600; margin:0; letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 12px;
+  }
+  h2.section-title{font-size:28px; margin-bottom:40px; color:var(--text);}
+  p{color:var(--text-dim); margin:0 0 16px;}
+  .mono{font-family:var(--font-mono);}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(10,14,18,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px;}
+  .logo{font-family:var(--font-mono); font-size:15px; color:var(--text); font-weight:500;}
+  .logo span{color:var(--accent);}
+  .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .navlinks a{color:var(--text-dim); font-size:14px; font-family:var(--font-mono);}
+  .navlinks a:hover{color:var(--accent); text-decoration:none;}
+  .navtoggle{display:none;}
+
+  /* HERO */
+  .hero{padding:88px 0 64px;}
+  .hero .eyebrow{display:flex; align-items:center; gap:8px;}
+  .hero .eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--accent); display:inline-block; box-shadow:0 0 0 3px rgba(76,231,208,0.15);}
+  .hero h1{font-size:clamp(38px, 6vw, 60px); line-height:1.05;}
+  .hero .role{font-family:var(--font-body); font-size:clamp(17px,2.4vw,20px); color:var(--text-dim); margin-top:16px; max-width:620px;}
+  .trace-wrap{margin:44px 0 36px; border:1px solid var(--line); border-radius:var(--radius); background:var(--bg-elev); overflow:hidden;}
+  .trace-wrap canvas{display:block; width:100%; height:130px;}
+  .trace-label{display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:12px; color:var(--text-faint); padding:10px 16px; border-top:1px solid var(--line);}
+  .hero-meta{display:flex; flex-wrap:wrap; align-items:center; gap:18px; margin-top:8px;}
+  .hero-meta .loc{font-family:var(--font-mono); font-size:14px; color:var(--text-dim);}
+  .links-row{display:flex; flex-wrap:wrap; gap:12px;}
+  .btn{
+    font-family:var(--font-mono); font-size:13px; color:var(--text);
+    border:1px solid var(--line-strong); border-radius:8px; padding:9px 16px;
+    display:inline-flex; align-items:center; gap:8px; transition:border-color .15s, color .15s;
+  }
+  .btn:hover{border-color:var(--accent); color:var(--accent); text-decoration:none;}
+  .btn.primary{background:var(--accent); color:#06211D; border-color:var(--accent); font-weight:500;}
+  .btn.primary:hover{color:#06211D; opacity:0.9;}
+
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:56px; align-items:start;}
+  .stats{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .stat{border:1px solid var(--line); border-radius:var(--radius); background:var(--bg-elev); padding:18px;}
+  .stat .num{font-family:var(--font-display); font-size:28px; font-weight:600; color:var(--accent);}
+  .stat .label{font-family:var(--font-mono); font-size:12px; color:var(--text-dim); margin-top:4px;}
+
+  /* PROJECTS */
+  .proj-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .card{border:1px solid var(--line); border-radius:var(--radius); background:var(--bg-elev); padding:28px; display:flex; flex-direction:column;}
+  .card .tag-row{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0;}
+  .tag{font-family:var(--font-mono); font-size:11px; color:var(--accent); border:1px solid var(--accent-dim); background:rgba(76,231,208,0.06); padding:4px 9px; border-radius:6px;}
+  .card h3{font-size:20px; margin-bottom:6px;}
+  .card .context{font-family:var(--font-mono); font-size:12px; color:var(--text-faint); margin-bottom:14px;}
+  .card p{flex:1;}
+  .card .card-link{font-family:var(--font-mono); font-size:13px; margin-top:auto;}
+
+  /* TIMELINE */
+  .timeline{display:flex; flex-direction:column;}
+  .tl-item{display:grid; grid-template-columns:190px 1fr; gap:24px; padding:24px 0; border-top:1px solid var(--line);}
+  .tl-item:first-child{border-top:none;}
+  .tl-date{font-family:var(--font-mono); font-size:13px; color:var(--accent-2); white-space:nowrap;}
+  .tl-role{font-size:17px; font-weight:600; font-family:var(--font-display); margin-bottom:2px;}
+  .tl-org{font-family:var(--font-mono); font-size:13px; color:var(--text-faint); margin-bottom:10px;}
+  .tl-item ul{margin:0; padding-left:18px; color:var(--text-dim);}
+  .tl-item li{margin-bottom:6px;}
+
+  /* PUBLICATIONS */
+  .pub-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .pub-box{border:1px solid var(--line); border-radius:var(--radius); background:var(--bg-elev); padding:24px;}
+  .pub-box h3{font-size:16px; margin-bottom:12px; font-family:var(--font-mono); color:var(--text-dim); text-transform:uppercase; letter-spacing:0.05em; font-weight:500;}
+  .pub-box ul{margin:0; padding-left:18px; color:var(--text-dim);}
+  .pub-box li{margin-bottom:8px;}
+
+  /* SKILLS */
+  .skill-groups{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
+  .skill-group h3{font-family:var(--font-mono); font-size:13px; color:var(--accent); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:12px; font-weight:500;}
+  .skill-tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .skill-tags span{font-family:var(--font-mono); font-size:12px; color:var(--text-dim); border:1px solid var(--line-strong); padding:5px 10px; border-radius:6px;}
+
+  /* AWARDS */
+  .awards-list{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:14px 32px;}
+  .awards-list li{border-top:1px solid var(--line); padding-top:12px; color:var(--text-dim); font-size:14px;}
+  .awards-list li b{color:var(--text); font-weight:500;}
+  .awards-list .yr{font-family:var(--font-mono); color:var(--text-faint); font-size:12px; display:block; margin-top:2px;}
+
+  /* EDUCATION */
+  .edu-item{border-top:1px solid var(--line); padding:20px 0;}
+  .edu-item:first-child{border-top:none; padding-top:0;}
+  .edu-item .deg{font-family:var(--font-display); font-size:17px; font-weight:600;}
+  .edu-item .school{font-family:var(--font-mono); font-size:13px; color:var(--text-faint); margin-top:2px;}
+  .edu-item .gpa{font-family:var(--font-mono); font-size:13px; color:var(--accent-2); margin-top:6px;}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line); padding:56px 0 40px;}
+  footer .foot-inner{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px;}
+  footer .foot-links{display:flex; flex-wrap:wrap; gap:20px;}
+  footer .foot-links a{font-family:var(--font-mono); font-size:13px; color:var(--text-dim);}
+  footer .foot-links a:hover{color:var(--accent);}
+  footer .copyright{font-family:var(--font-mono); font-size:12px; color:var(--text-faint); margin-top:32px;}
+
+  @media (max-width:760px){
+    .navlinks{display:none;}
+    .about-grid, .proj-grid, .pub-grid, .skill-groups{grid-template-columns:1fr;}
+    .awards-list{grid-template-columns:1fr;}
+    .tl-item{grid-template-columns:1fr; gap:6px;}
+    section{padding:64px 0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">TASMINA IMAM <span>/</span> EE</div>
+    <ul class="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <p class="eyebrow">Available for full-time roles &middot; open to relocation</p>
+  <h1>Tasmina Imam</h1>
+  <p class="role">Electrical Engineer working on data-driven power systems research — residential net-load forecasting, renewable energy integration, and grid reliability.</p>
+
+  <div class="trace-wrap">
+    <canvas id="trace" aria-hidden="true"></canvas>
+    <div class="trace-label">
+      <span>CH1 · NET LOAD SIGNAL</span>
+      <span>60.00 Hz</span>
+    </div>
+  </div>
+
+  <div class="hero-meta">
+    <span class="loc">Beaumont, TX — open to relocation</span>
+  </div>
+  <div class="links-row" style="margin-top:16px;">
+    <a class="btn primary" href="mailto:tasmina.imam01@gmail.com">Email me</a>
+    <a class="btn" href="https://linkedin.com/in/tasmina-imam" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/Tasmina-Imam" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://scholar.google.com/citations?user=0Rb2qoMAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2 class="section-title">Building tools that help the grid absorb more renewable energy</h2>
+      <p>I'm an electrical engineer with a Master of Engineering from Lamar University, where I've spent the past two years researching how data science can improve power system reliability. My thesis work applies statistical, machine learning, and deep learning models to residential net-load forecasting using smart-meter and meteorological data — helping utilities anticipate demand as distributed solar generation grows.</p>
+      <p>Alongside that, I bring hands-on experience in electrical testing, instrumentation, and lab operations, plus a research background that spans power systems and space physics. I care about turning messy real-world data into models that engineers can actually rely on.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">4.00</div><div class="label">M.Eng. GPA, Lamar University</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">Published papers (1 journal, 2 IEEE)</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">Manuscripts under review</div></div>
+      <div class="stat"><div class="num">2019</div><div class="label">Magna Cum Laude, B.Sc. EEE</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <p class="eyebrow">Research &amp; Projects</p>
+    <h2 class="section-title">Selected work</h2>
+    <div class="proj-grid">
+      <div class="card">
+        <h3>Residential net-load forecasting for renewable integration</h3>
+        <div class="context">Master's Thesis · GridLab, Lamar University · 2025–2026</div>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">MATLAB</span><span class="tag">Machine Learning</span><span class="tag">Deep Learning</span>
+        </div>
+        <p>Built statistical, machine learning, and deep learning models to forecast residential net load using smart-meter and meteorological data, and evaluated how distributed solar generation affects power system performance and grid reliability. Designed feature engineering pipelines and validated results against both deterministic and probabilistic metrics.</p>
+        <a class="card-link" href="https://scholar.google.com/citations?user=0Rb2qoMAAAAJ&hl=en" target="_blank" rel="noopener">Related publications on Google Scholar &#8599;</a>
+      </div>
+      <div class="card">
+        <h3>Spacecraft electric &amp; magnetic field data analysis</h3>
+        <div class="context">Graduate Research Assistant · Dept. of Physics, Lamar University · 2025</div>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">Scientific Data Processing</span><span class="tag">Signal Analysis</span>
+        </div>
+        <p>Developed Python-based computational tools to process and validate electric and magnetic field measurements from spacecraft observations, supporting laboratory research and technical documentation for space physics analysis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <p class="eyebrow">Experience</p>
+    <h2 class="section-title">Career timeline</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date mono">Jan 2025 — May 2026</div>
+        <div>
+          <div class="tl-role">Master's Thesis Researcher</div>
+          <div class="tl-org">GridLab, Lamar University · Beaumont, TX</div>
+          <ul>
+            <li>Developed statistical, ML, and deep learning models for residential net-load forecasting using smart-meter and meteorological datasets.</li>
+            <li>Evaluated the impact of distributed solar generation on power system performance to support renewable integration and grid reliability.</li>
+            <li>Designed feature engineering pipelines and validated forecasting performance with deterministic and probabilistic metrics.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date mono">Jun 2025 — Aug 2025</div>
+        <div>
+          <div class="tl-role">Graduate Research Assistant</div>
+          <div class="tl-org">Department of Physics, Lamar University</div>
+          <ul>
+            <li>Developed Python-based computational tools to analyze electrical and magnetic field measurements from spacecraft observations.</li>
+            <li>Processed and validated scientific datasets; supported laboratory research and technical documentation.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date mono">Jan 2019 — Aug 2023</div>
+        <div>
+          <div class="tl-role">Lab Officer</div>
+          <div class="tl-org">Dept. of Electrical &amp; Computer Engineering, North South University</div>
+          <ul>
+            <li>Supported undergraduate labs in circuit analysis, electrical measurements, and instrumentation.</li>
+            <li>Maintained and calibrated oscilloscopes, multimeters, function generators, and DC power supplies; diagnosed equipment issues.</li>
+            <li>Prepared lab manuals and technical documentation, promoting electrical safety best practices.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date mono">Oct 2018 — Feb 2019</div>
+        <div>
+          <div class="tl-role">Project Intern</div>
+          <div class="tl-org">Grameenphone Ltd. · Dhaka, Bangladesh</div>
+          <ul>
+            <li>Supported B2B enterprise engineering solutions involving IoT, smart surveillance, and communication systems.</li>
+            <li>Assisted with technical solution design, customer requirement analysis, and product demonstrations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <p class="eyebrow">Publications &amp; Recognition</p>
+    <h2 class="section-title">Papers, reviewing &amp; certifications</h2>
+    <div class="pub-grid">
+      <div class="pub-box">
+        <h3>Publications</h3>
+        <ul>
+          <li>1 journal article and 2 IEEE conference papers published in renewable energy, power systems, and machine learning.</li>
+          <li>3 additional journal manuscripts currently under review.</li>
+          <li>Sub-reviewer, NAPS 2026 Conference.</li>
+        </ul>
+        <a class="card-link" href="https://scholar.google.com/citations?user=0Rb2qoMAAAAJ&hl=en" target="_blank" rel="noopener">Full list on Google Scholar &#8599;</a>
+      </div>
+      <div class="pub-box">
+        <h3>Certifications</h3>
+        <ul>
+          <li>NFPA 70E Electrical Safety Training — OSHA Education Center</li>
+          <li>Six Sigma Yellow Belt</li>
+          <li>Data Engineering Foundations — LinkedIn Learning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <p class="eyebrow">Skills</p>
+    <h2 class="section-title">Technical toolkit</h2>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Power systems</h3>
+        <div class="skill-tags">
+          <span>Power System Analysis</span><span>Load Forecasting</span><span>Smart Grid</span><span>Distributed Energy Resources</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Electrical</h3>
+        <div class="skill-tags">
+          <span>Electrical Design</span><span>Circuit Analysis</span><span>Instrumentation</span><span>Electrical Testing</span><span>Control Systems</span><span>Sensors</span><span>Troubleshooting</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Software &amp; tools</h3>
+        <div class="skill-tags">
+          <span>MATLAB</span><span>Python</span><span>AutoCAD</span><span>LTspice</span><span>Multisim</span><span>Simulink</span><span>PSCAD</span><span>SCADA</span><span>Git</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Documentation</h3>
+        <div class="skill-tags">
+          <span>Technical Reports</span><span>Electrical Schematics</span><span>Engineering Drawings</span><span>IEEE Publications</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="wrap">
+    <p class="eyebrow">Awards &amp; Honors</p>
+    <h2 class="section-title">Recognition</h2>
+    <ul class="awards-list">
+      <li><b>Magna Cum Laude</b>, Academic Excellence<span class="yr">2019</span></li>
+      <li><b>Tuition Waiver Award</b>, North South University<span class="yr">2016–2018</span></li>
+      <li><b>Certificate of Contribution</b>, Communication Camp, NSU WIE Affinity Group<span class="yr">2017</span></li>
+      <li><b>Certificate of Appreciation</b>, IEEE Authorship Workshop<span class="yr">2017</span></li>
+      <li><b>Best Speaker</b>, Annual Debate Competition, Agrabad Balika Bidyalay<span class="yr">2010</span></li>
+      <li><b>1st Place</b>, Extempore Speech Competition, Agrabad Balika Bidyalay<span class="yr">2010</span></li>
+      <li><b>3× Champion</b>, Annual Debate Competition, Agrabad Balika Bidyalay<span class="yr">2008–2010</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <p class="eyebrow">Education</p>
+    <h2 class="section-title">Academic background</h2>
+    <div class="edu-item">
+      <div class="deg">Master of Engineering, Electrical Engineering</div>
+      <div class="school">Lamar University, Beaumont, TX · May 2026</div>
+      <div class="gpa">GPA 4.00 / 4.00</div>
+    </div>
+    <div class="edu-item">
+      <div class="deg">B.Sc., Electrical and Electronic Engineering</div>
+      <div class="school">North South University, Dhaka, Bangladesh · Dec 2018</div>
+      <div class="gpa">GPA 3.72 / 4.00 — Magna Cum Laude</div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2 class="section-title" style="margin-bottom:24px;">Let's talk</h2>
+    <div class="foot-inner">
+      <p style="max-width:420px; margin:0;">Open to full-time electrical engineering roles in power systems, renewable energy, and grid analytics. Open to relocation.</p>
+      <div class="foot-links">
+        <a href="mailto:tasmina.imam01@gmail.com">tasmina.imam01@gmail.com</a>
+        <a href="https://linkedin.com/in/tasmina-imam" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Tasmina-Imam" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=0Rb2qoMAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+    </div>
+    <div class="copyright">&copy; <span id="year"></span> Tasmina Imam</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+(function(){
+  var canvas = document.getElementById('trace');
+  var ctx = canvas.getContext('2d');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize(){
+    var rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  var t = 0;
+  function draw(){
+    var w = canvas.getBoundingClientRect().width;
+    var h = canvas.getBoundingClientRect().height;
+    ctx.clearRect(0,0,w,h);
+    var midY = h/2;
+    ctx.beginPath();
+    ctx.lineWidth = 1.6;
+    ctx.strokeStyle = '#4CE7D0';
+    for(var x=0; x<=w; x+=2){
+      var phase = (x*0.045) + t;
+      var y = midY
+        + Math.sin(phase) * (h*0.22)
+        + Math.sin(phase*3.1 + 1.2) * (h*0.05)
+        + Math.sin(phase*0.37) * (h*0.06);
+      if(x===0){ ctx.moveTo(x,y); } else { ctx.lineTo(x,y); }
+    }
+    ctx.stroke();
+    if(!reduceMotion){
+      t += 0.045;
+      requestAnimationFrame(draw);
+    }
+  }
+  draw();
+})();
+</script>
+
+</body>
+</html>
