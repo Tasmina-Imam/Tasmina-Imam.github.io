@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){try{var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Tasmina Imam</title>
+<meta name="description" content="Research projects by Tasmina Imam in power systems, renewable energy forecasting, and scientific data analysis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">TASMINA IMAM <span>/</span> EE</div>
+    <ul class="navlinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="teaching.html">Teaching &amp; Learning</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="mailto:tasmina.imam01@gmail.com" class="contact-link">Contact</a></li>
+      <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme">Light mode</button></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header wrap">
+  <p class="eyebrow">Research &amp; Projects</p>
+  <h1>Selected work</h1>
+  <p class="role">Applied research projects spanning power systems forecasting and scientific data analysis.</p>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="proj-grid">
+      <div class="card wide">
+        <h3>Residential net-load forecasting for renewable integration</h3>
+        <div class="context">Master's Thesis · GridLab, Lamar University · 2025–2026</div>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">MATLAB</span><span class="tag">Machine Learning</span><span class="tag">Deep Learning</span><span class="tag">Time-Series Forecasting</span>
+        </div>
+        <p>Residential solar adoption is changing what utilities actually see on the meter: the "net load" curve, not the raw demand curve. This thesis builds forecasting models — spanning classical statistical methods, machine learning, and deep learning — to predict that net load using smart-meter readings and meteorological data.</p>
+        <ul>
+          <li>Evaluated how distributed solar generation affects power system performance, to support renewable integration and grid reliability planning.</li>
+          <li>Designed feature engineering pipelines tailored to smart-meter and weather data.</li>
+          <li>Validated forecasting performance using both deterministic (point-forecast accuracy) and probabilistic (uncertainty-aware) evaluation metrics.</li>
+        </ul>
+        <a class="card-link" href="https://scholar.google.com/citations?user=0Rb2qoMAAAAJ&hl=en" target="_blank" rel="noopener">Related publications on Google Scholar &#8599;</a>
+      </div>
+
+      <div class="card wide">
+        <h3>Spacecraft electric &amp; magnetic field data analysis</h3>
+        <div class="context">Graduate Research Assistant · Dept. of Physics, Lamar University · 2025</div>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">Scientific Data Processing</span><span class="tag">Signal Analysis</span>
+        </div>
+        <p>Working with the Physics department, I built Python-based computational tools to analyze electric and magnetic field measurements collected from spacecraft observations — applying signal-processing techniques to noisy, high-volume instrument data.</p>
+        <ul>
+          <li>Processed and validated scientific datasets for downstream analysis.</li>
+          <li>Supported laboratory research, engineering analysis, and technical documentation for the wider research team.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2 class="section-title" style="margin-bottom:24px;">Let's talk</h2>
+    <div class="foot-inner">
+      <p style="max-width:420px; margin:0;">Open to full-time electrical engineering roles in power systems, renewable energy, and grid analytics. Open to relocation.</p>
+      <div class="foot-links">
+        <a href="mailto:tasmina.imam01@gmail.com">tasmina.imam01@gmail.com</a>
+        <a href="https://linkedin.com/in/tasmina-imam" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Tasmina-Imam" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=0Rb2qoMAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+    </div>
+    <div class="copyright">&copy; <span id="year"></span> Tasmina Imam</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
